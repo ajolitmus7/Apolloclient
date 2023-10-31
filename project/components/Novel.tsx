@@ -5,7 +5,7 @@ import { INovel } from "../typing";
 import { useMutation } from "@apollo/client";
 import Link from "next/link";
 import React from "react";
-
+import Image from "next/image";
 type Props = {
 	novel: INovel;
 };
@@ -18,7 +18,7 @@ export const Novel = ({ novel }: Props) => {
 		<article className="flex flex-col p-4  bg-slate-200 dark:bg-zinc-800 hover:scale-110 shadow-sm hover:shadow-lg hover:bg-slate-300 transition duration-300 ease-out text-white ">
 			{novel.image && (
 				<div>
-					<img
+					<Image
 						src={novel.image}
 						alt={novel.title}
 						className="h-56 w-full object-contain rounded-t-lg shadow-md"

@@ -2,7 +2,7 @@
 import React, { FormEvent, useState } from "react";
 import { useMutation, useQuery } from "@apollo/client";
 import { GET_NOVELS } from "@/graphql/queries";
-import { INovel } from "@/typing";
+import { INovel } from "../typing";
 import { Novel } from "./Novel";
 
 import { ADD_NOVEL } from "@/graphql/mutations";

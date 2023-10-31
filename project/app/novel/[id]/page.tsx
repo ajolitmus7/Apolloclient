@@ -1,10 +1,11 @@
 "use client";
 import { ADD_AUTHOR, DELETE_AUTHOR, UPDATE_NOVEL } from "@/graphql/mutations";
 import { GET_NOVEL } from "@/graphql/queries";
-import { INovel } from "@/typings";
+import { INovel } from "@/typing";
 import { useMutation, useQuery } from "@apollo/client";
 import React, { useState } from "react";
 import { AiFillMinusCircle } from "react-icons/ai";
+import Image from "next/image";
 type Props = {
 	params: {
 		id: string;
@@ -52,21 +53,21 @@ const Novel = ({ params: { id } }: Props) => {
 
 	if (loading)
 		return (
-			<p className="text-white flex items-center justify-center">
+			<p className="text-black flex items-center justify-center">
 				Loading ....
 			</p>
 		);
 	if (error)
 		return (
-			<p className="text-white flex items-center justify-center">
+			<p className="text-black flex items-center justify-center">
 				Oops! Something went wrong ....
 			</p>
 		);
 	return (
-		<article className="max-w-5xl mx-auto text-white">
+		<article className="max-w-5xl mx-auto text-black">
 			<section className="flex gap-2 ">
 				{novel.image && (
-					<img height={200} width={200} src={novel.image} alt="" />
+					<Image height={200} width={200} src={novel.image} alt="" />
 				)}
 
 				<div className="p-2 flex flex-col">
@@ -95,14 +96,9 @@ const Novel = ({ params: { id } }: Props) => {
 					<p className="text-slate-400 ">
 						Lorem ipsum dolor sit amet consectetur adipisicing elit.
 						Architecto cum nam sed voluptates sunt aliquid nemo
-						maxime itaque tempora, autem alias nostrum molestiae
-						deserunt earum animi numquam reprehenderit laboriosam
-						libero? Quas, atque totam vero nostrum dolore, nihil
-						autem neque architecto deserunt illo itaque, ab quae
-						ipsam corrupti ipsum quaerat? Sed hic ipsum excepturi
-						earum minus consectetur soluta totam temporibus libero.
+						
 					</p>
-					{/* add author form */}
+
 					<form onSubmit={handleAddAuthor} className="mt-5 space-x-2">
 						<input
 							value={name}
@@ -120,7 +116,7 @@ const Novel = ({ params: { id } }: Props) => {
 					</form>
 				</div>
 			</section>
-			{/* update form */}
+			
 			<form onSubmit={handleUpdateNovel} className="flex gap-2 ">
 				<input
 					value={title}
